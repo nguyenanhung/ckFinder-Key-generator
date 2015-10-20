@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CKFinder Keygen</title>
+</head>
+<body>
+<table style="border: 1px solid #999;">
+<thead>
+<tr>
+	<th colspan="2" style="background-color: #eee; color: #333; text-align: center;">
+		 CKFinder 2.x Keygen
+	</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>
+		<label for="licenseName">License Name</label>:
+	</td>
+	<td>
+		<input type="text" id="licenseName" placeholder="License Name"/>
+	</td>
+</tr>
+<tr>
+	<td>
+		<label for="licenseKey">License Key</label>:
+	</td>
+	<td>
+		<input type="text" id="licenseKey" onclick="this.select();" readonly/>
+	</td>
+</tr>
+<tr>
+	<td colspan="2" style="text-align: center">
+		<button id="generateBtn">Generate</button>
+	</td>
+</tr>
+</tbody>
+</table>
+ &copy; 2014 <a href="http://www.nguyenanhung.com">@nguyenanhung</a>
+<script>
+        String.prototype.replaceAt = function(index, character) {
+            if (index > this.length - 1) return this;
+            return this.substr(0, index) + character + this.substr(index + character.length);
+        }
+        function generateKey(licenseName) {
+            licenseKey = "";
+            chars = "123456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+            for (i = 0; i <= 31; i++) {
+                licenseKey += chars[Math.floor((Math.random() * (chars.length - 1)))];
+            }
+            zeroChars = chars[4] + chars[9] + chars[14] + chars[19] + chars[24] + chars[29];
+            licenseKey = licenseKey.replaceAt(0, zeroChars[Math.floor((Math.random() * (zeroChars.length - 1)))]);
+            licenseKey = licenseKey.replaceAt(3, chars.substr(((licenseName.length + chars.indexOf(licenseKey[1])) * 9 % (2 << 4)), 1));
+            licenseKey = licenseKey.replaceAt(12, chars[(chars.indexOf(licenseKey[11]) + chars.indexOf(licenseKey[8])) * 9 % (chars.length - 1)]);
+            twentyFiveChars = chars[7] + chars[15] + chars[23] + chars[31];
+            licenseKey = licenseKey.replaceAt(25, twentyFiveChars[Math.floor((Math.random() * (twentyFiveChars.length - 1)))]);
+            return licenseKey;
+        }
+        document.getElementById("generateBtn").onclick = function(event) {
+            event.preventDefault();
+            licenseName = document.getElementById('licenseName').value.trim();
+            if (licenseName == "") alert("Please enter License Name!");
+            else document.getElementById('licenseKey').value = generateKey(licenseName);
+        }
+        </script>
+</body>
+</html>
