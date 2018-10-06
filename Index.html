@@ -44,6 +44,12 @@
         return this.substr(0, index) + character + this.substr(index + character.length);
     }
 
+    /**
+     * Generate Key for ckFinder 2.x
+     *
+     * @param licenseName
+     * @returns {*|string}
+     */
     function generateKey(licenseName) {
         licenseKey = "";
         chars = "123456789ABCDEFGHJKLMNPQRSTUVWXYZ";
