@@ -1,5 +1,6 @@
 # ckFinder-Key-generator
-Generator Key for ckFinder
+
+Generator Key for ckFinder version 2.x
 
 # Hướng dẫn
 
